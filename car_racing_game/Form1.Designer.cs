@@ -45,6 +45,11 @@
             this.road_mark_pictureBox3 = new System.Windows.Forms.PictureBox();
             this.road_mark_pictureBox2 = new System.Windows.Forms.PictureBox();
             this.road_mark_pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.seconds_label = new System.Windows.Forms.Label();
+            this.game_speed_level_timer = new System.Windows.Forms.Timer(this.components);
+            this.minutes_label = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.level_label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.enemy4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy3)).BeginInit();
@@ -228,6 +233,59 @@
             this.road_mark_pictureBox1.TabIndex = 0;
             this.road_mark_pictureBox1.TabStop = false;
             // 
+            // seconds_label
+            // 
+            this.seconds_label.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seconds_label.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.seconds_label.Location = new System.Drawing.Point(355, 0);
+            this.seconds_label.Name = "seconds_label";
+            this.seconds_label.Size = new System.Drawing.Size(25, 15);
+            this.seconds_label.TabIndex = 14;
+            this.seconds_label.Text = "00";
+            this.seconds_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.seconds_label.Visible = false;
+            // 
+            // game_speed_level_timer
+            // 
+            this.game_speed_level_timer.Interval = 10;
+            this.game_speed_level_timer.Tick += new System.EventHandler(this.game_speed_level_timer_Tick);
+            // 
+            // minutes_label
+            // 
+            this.minutes_label.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minutes_label.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.minutes_label.Location = new System.Drawing.Point(331, 0);
+            this.minutes_label.Name = "minutes_label";
+            this.minutes_label.Size = new System.Drawing.Size(30, 15);
+            this.minutes_label.TabIndex = 15;
+            this.minutes_label.Text = "000";
+            this.minutes_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.minutes_label.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Location = new System.Drawing.Point(-3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 15);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Level";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // level_label2
+            // 
+            this.level_label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.level_label2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.level_label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.level_label2.Location = new System.Drawing.Point(33, 0);
+            this.level_label2.Name = "level_label2";
+            this.level_label2.Size = new System.Drawing.Size(26, 15);
+            this.level_label2.TabIndex = 17;
+            this.level_label2.Text = "01";
+            this.level_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // main_Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,6 +293,9 @@
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(384, 461);
+            this.Controls.Add(this.level_label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.seconds_label);
             this.Controls.Add(this.try_again_but);
             this.Controls.Add(this.game_over_label);
             this.Controls.Add(this.enemy4);
@@ -249,7 +310,9 @@
             this.Controls.Add(this.road_mark_pictureBox3);
             this.Controls.Add(this.road_mark_pictureBox2);
             this.Controls.Add(this.road_mark_pictureBox1);
+            this.Controls.Add(this.minutes_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -292,6 +355,11 @@
         private System.Windows.Forms.PictureBox enemy4;
         private System.Windows.Forms.Label game_over_label;
         private System.Windows.Forms.Button try_again_but;
+        private System.Windows.Forms.Label seconds_label;
+        private System.Windows.Forms.Timer game_speed_level_timer;
+        private System.Windows.Forms.Label minutes_label;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label level_label2;
     }
 }
 
