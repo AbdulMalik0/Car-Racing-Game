@@ -58,32 +58,62 @@ namespace car_racing_game
                 this.road_mark_pictureBox5.Top += speedvalue;
         }
         int output_speed = 5;
+        int car_speed = 5;
         private void main_Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
                 if (game_over_label.Visible != true)
                 {
-                    if (this.car_pictureBox3.Left >= 8)
-                        this.car_pictureBox3.Left -= 10;
+                    go_left_timer1.Start();
                 }
             if (e.KeyCode == Keys.Right)
                 if (game_over_label.Visible != true)
                 {
-                    if (this.car_pictureBox3.Right <= 380)
-                        this.car_pictureBox3.Left += 10;
+                    go_right_timer2.Start();
                 }
             if (e.KeyCode == Keys.Up)
                 if (game_over_label.Visible != true)
                 {
-                    racing(output_speed++);
+                    go_up_timer3.Start();
                 }
             if (e.KeyCode == Keys.Down)
-                if (game_over_label.Visible != true)
-                    if (output_speed > 0)
-                    {
-                        racing(output_speed--);
-                    }
+                if (output_speed > 0)
+                {
+                    go_down_timer4.Start();
+                }
+        }
+        private void main_Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            go_left_timer1.Stop();
+            go_right_timer2.Stop();
+            go_up_timer3.Stop();
+            go_down_timer4.Stop();
+        }
 
+        private void go_left_timer1_Tick(object sender, EventArgs e)
+        {
+            if (this.car_pictureBox3.Left >= 8)
+                this.car_pictureBox3.Left -= car_speed;
+        }
+
+        private void go_right_timer2_Tick(object sender, EventArgs e)
+        {
+            if (this.car_pictureBox3.Right <= 380)
+                this.car_pictureBox3.Left += car_speed;
+        }
+
+        private void go_up_timer3_Tick(object sender, EventArgs e)
+        {
+            if (this.car_pictureBox3.Top > 10)
+                this.car_pictureBox3.Top -= car_speed;
+        }
+
+        private void go_down_timer4_Tick(object sender, EventArgs e)
+        {
+            if (this.car_pictureBox3.Top <= 400)
+            {
+                this.car_pictureBox3.Top += car_speed;
+            }
         }
         Random enemylocation = new Random();
         int s, p;
@@ -143,36 +173,38 @@ namespace car_racing_game
         {
             if (minutes_label.Text == "015")
             {
-                output_speed = 10;
+                output_speed = 8;
                 //game_speed(10);
                 level_label2.Text = "02";
             }
             if (minutes_label.Text == "025")
             {
-                output_speed = 15;
+                output_speed = 11;
                 //game_speed(15);
                 level_label2.Text = "03";
             }
             if (minutes_label.Text == "035")
             {
-                output_speed = 20;
+                output_speed = 14;
                // game_speed(20);
                 level_label2.Text = "04";
             }
 
             if (minutes_label.Text == "045")
             {
-                output_speed = 25;
+                output_speed = 17;
                 //game_speed(25);
                 level_label2.Text = "05";
             }
             if (minutes_label.Text == "055")
             {
+                output_speed = 20;
                 //game_speed(30);
                 level_label2.Text = "06";
             }
             if (minutes_label.Text == "065")
             {
+                output_speed = 23;
                 //game_speed(35);
                 level_label2.Text = "07";
             }
@@ -244,6 +276,9 @@ namespace car_racing_game
             seconds_label.Text = x_seconds.ToString("00");
             minutes_label.Text = y_minutus.ToString("000");
         }
+
+       
+
         void increasedseconds()
         {
             if (x_seconds == 59)

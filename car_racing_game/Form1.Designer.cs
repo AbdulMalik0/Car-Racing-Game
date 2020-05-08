@@ -50,6 +50,10 @@
             this.minutes_label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.level_label2 = new System.Windows.Forms.Label();
+            this.go_left_timer1 = new System.Windows.Forms.Timer(this.components);
+            this.go_right_timer2 = new System.Windows.Forms.Timer(this.components);
+            this.go_up_timer3 = new System.Windows.Forms.Timer(this.components);
+            this.go_down_timer4 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.enemy4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy3)).BeginInit();
@@ -114,7 +118,7 @@
             this.enemy4.Image = ((System.Drawing.Image)(resources.GetObject("enemy4.Image")));
             this.enemy4.Location = new System.Drawing.Point(80, 12);
             this.enemy4.Name = "enemy4";
-            this.enemy4.Size = new System.Drawing.Size(42, 58);
+            this.enemy4.Size = new System.Drawing.Size(40, 50);
             this.enemy4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.enemy4.TabIndex = 11;
             this.enemy4.TabStop = false;
@@ -125,9 +129,9 @@
             this.enemy2.BackgroundImage = global::car_racing_game.Properties.Resources.car;
             this.enemy2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.enemy2.Image = ((System.Drawing.Image)(resources.GetObject("enemy2.Image")));
-            this.enemy2.Location = new System.Drawing.Point(242, 337);
+            this.enemy2.Location = new System.Drawing.Point(245, 337);
             this.enemy2.Name = "enemy2";
-            this.enemy2.Size = new System.Drawing.Size(42, 58);
+            this.enemy2.Size = new System.Drawing.Size(40, 50);
             this.enemy2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.enemy2.TabIndex = 10;
             this.enemy2.TabStop = false;
@@ -140,7 +144,7 @@
             this.enemy3.Image = ((System.Drawing.Image)(resources.GetObject("enemy3.Image")));
             this.enemy3.Location = new System.Drawing.Point(285, 135);
             this.enemy3.Name = "enemy3";
-            this.enemy3.Size = new System.Drawing.Size(42, 58);
+            this.enemy3.Size = new System.Drawing.Size(40, 50);
             this.enemy3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.enemy3.TabIndex = 9;
             this.enemy3.TabStop = false;
@@ -153,7 +157,7 @@
             this.enemy1.Image = ((System.Drawing.Image)(resources.GetObject("enemy1.Image")));
             this.enemy1.Location = new System.Drawing.Point(30, 246);
             this.enemy1.Name = "enemy1";
-            this.enemy1.Size = new System.Drawing.Size(42, 58);
+            this.enemy1.Size = new System.Drawing.Size(40, 50);
             this.enemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.enemy1.TabIndex = 8;
             this.enemy1.TabStop = false;
@@ -183,7 +187,7 @@
             this.car_pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.car_pictureBox3.Location = new System.Drawing.Point(135, 400);
             this.car_pictureBox3.Name = "car_pictureBox3";
-            this.car_pictureBox3.Size = new System.Drawing.Size(38, 58);
+            this.car_pictureBox3.Size = new System.Drawing.Size(40, 55);
             this.car_pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.car_pictureBox3.TabIndex = 7;
             this.car_pictureBox3.TabStop = false;
@@ -286,6 +290,26 @@
             this.level_label2.Text = "01";
             this.level_label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // go_left_timer1
+            // 
+            this.go_left_timer1.Interval = 5;
+            this.go_left_timer1.Tick += new System.EventHandler(this.go_left_timer1_Tick);
+            // 
+            // go_right_timer2
+            // 
+            this.go_right_timer2.Interval = 5;
+            this.go_right_timer2.Tick += new System.EventHandler(this.go_right_timer2_Tick);
+            // 
+            // go_up_timer3
+            // 
+            this.go_up_timer3.Interval = 5;
+            this.go_up_timer3.Tick += new System.EventHandler(this.go_up_timer3_Tick);
+            // 
+            // go_down_timer4
+            // 
+            this.go_down_timer4.Interval = 5;
+            this.go_down_timer4.Tick += new System.EventHandler(this.go_down_timer4_Tick);
+            // 
             // main_Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,6 +345,7 @@
             this.Text = "Car Racing";
             this.Load += new System.EventHandler(this.main_Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.main_Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.main_Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.enemy4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy3)).EndInit();
@@ -360,6 +385,10 @@
         private System.Windows.Forms.Label minutes_label;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label level_label2;
+        private System.Windows.Forms.Timer go_left_timer1;
+        private System.Windows.Forms.Timer go_right_timer2;
+        private System.Windows.Forms.Timer go_up_timer3;
+        private System.Windows.Forms.Timer go_down_timer4;
     }
 }
 
